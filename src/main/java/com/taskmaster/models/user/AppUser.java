@@ -8,7 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.taskmaster.models.company.CompanyDetails;
-import com.taskmaster.models.company.data.usage.UsageData;
 
 import jakarta.persistence.*;
 
@@ -28,9 +27,6 @@ public class AppUser implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "companyDetails_id", referencedColumnName = "id")
     private CompanyDetails companyDetails;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private UsageData usageData;
 
     private String role;
 
@@ -130,13 +126,5 @@ public class AppUser implements UserDetails {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public UsageData getUsageData() {
-        return usageData;
-    }
-
-    public void setUsageData(UsageData usageData) {
-        this.usageData = usageData;
     }
 }

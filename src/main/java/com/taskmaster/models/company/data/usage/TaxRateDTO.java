@@ -1,20 +1,23 @@
 package com.taskmaster.models.company.data.usage;
 
-import com.taskmaster.models.user.AppUser;
-import jakarta.persistence.*;
+public class TaxRateDTO {
 
-@Entity
-public class TaxRate {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private double percentage;
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private AppUser user;
+    // Default constructor
+    public TaxRateDTO() {
+    }
+
+    // Parameterized constructor
+    public TaxRateDTO(TaxRate taxRate) {
+        this.id = taxRate.getId();
+        this.title = taxRate.getTitle();
+        this.percentage = taxRate.getPercentage();
+        this.userId = taxRate.getUser().getId();
+    }
 
     // Getters and setters
     public Long getId() {
@@ -41,11 +44,11 @@ public class TaxRate {
         this.percentage = percentage;
     }
 
-    public AppUser getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUser(AppUser user) {
-        this.user = user;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

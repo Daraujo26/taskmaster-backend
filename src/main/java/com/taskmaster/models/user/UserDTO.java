@@ -1,7 +1,6 @@
 package com.taskmaster.models.user;
 
 import com.taskmaster.models.company.CompanyDetails;
-import com.taskmaster.models.company.data.usage.UsageData;
 
 public class UserDTO {
 
@@ -15,7 +14,6 @@ public class UserDTO {
     private String token;
     private String password;
     private String role;
-    private UsageData usageData;
 
     public UserDTO() {
 
@@ -128,13 +126,5 @@ public class UserDTO {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public UsageData getUsageData() {
-        return usageData;
-    }
-
-    public void setUsageData(UsageData usageData) {
-        this.usageData = usageData;
     }
 }

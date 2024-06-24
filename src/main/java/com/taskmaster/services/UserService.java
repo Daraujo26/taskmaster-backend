@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.taskmaster.config.JwtUtil;
 import com.taskmaster.models.company.CompanyDetails;
-import com.taskmaster.models.company.data.usage.UsageData;
 import com.taskmaster.models.response.AuthenticationRequest;
 import com.taskmaster.models.response.AuthenticationResponse;
 import com.taskmaster.models.user.AppUser;
@@ -54,7 +53,6 @@ public class UserService {
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setCompanyName(userDTO.getCompanyName());
         user.setCompanyDetails(userDTO.getCompanyDetails());
-        user.setUsageData(userDTO.getUsageData());
 
         String role = userDTO.getRole();
         if (!role.startsWith("ROLE_")) {
@@ -115,9 +113,6 @@ public class UserService {
                     break;
                 case "companyDetails":
                     user.setCompanyDetails((CompanyDetails) value);
-                    break;
-                case "usageData":
-                    user.setUsageData((UsageData) value);
                     break;
                 default:
                     throw new IllegalArgumentException("Unknown field: " + field);

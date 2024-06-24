@@ -24,10 +24,6 @@ public class ContractItem {
     @JoinColumn(name = "user_id", nullable = false)
     private AppUser user;
 
-    @ManyToOne
-    @JoinColumn(name = "usage_data_id")
-    private UsageData usageData;
-
     // Getters and setters
     public Long getId() {
         return id;
